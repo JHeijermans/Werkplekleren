@@ -1,0 +1,6 @@
+cd = change directory
+git clone .../.../....git
+git status 
+git add
+git commit -m "message"
+git push
