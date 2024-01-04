@@ -1,0 +1,15 @@
+C:\Users\12303390\Documents\Repo\Local\School\Werkplekleren\MonsterClicker\bin\Debug\MonsterClicker.exe.config
+C:\Users\12303390\Documents\Repo\Local\School\Werkplekleren\MonsterClicker\bin\Debug\MonsterClicker.exe
+C:\Users\12303390\Documents\Repo\Local\School\Werkplekleren\MonsterClicker\bin\Debug\MonsterClicker.pdb
+C:\Users\12303390\Documents\Repo\Local\School\Werkplekleren\MonsterClicker\obj\Debug\MonsterClicker.csproj.AssemblyReference.cache
+C:\Users\12303390\Documents\Repo\Local\School\Werkplekleren\MonsterClicker\obj\Debug\MainWindow.g.cs
+C:\Users\12303390\Documents\Repo\Local\School\Werkplekleren\MonsterClicker\obj\Debug\App.g.cs
+C:\Users\12303390\Documents\Repo\Local\School\Werkplekleren\MonsterClicker\obj\Debug\MonsterClicker_MarkupCompile.cache
+C:\Users\12303390\Documents\Repo\Local\School\Werkplekleren\MonsterClicker\obj\Debug\MonsterClicker_MarkupCompile.lref
+C:\Users\12303390\Documents\Repo\Local\School\Werkplekleren\MonsterClicker\obj\Debug\MainWindow.baml
+C:\Users\12303390\Documents\Repo\Local\School\Werkplekleren\MonsterClicker\obj\Debug\MonsterClicker.g.resources
+C:\Users\12303390\Documents\Repo\Local\School\Werkplekleren\MonsterClicker\obj\Debug\MonsterClicker.Properties.Resources.resources
+C:\Users\12303390\Documents\Repo\Local\School\Werkplekleren\MonsterClicker\obj\Debug\MonsterClicker.csproj.GenerateResource.cache
+C:\Users\12303390\Documents\Repo\Local\School\Werkplekleren\MonsterClicker\obj\Debug\MonsterClicker.csproj.CoreCompileInputs.cache
+C:\Users\12303390\Documents\Repo\Local\School\Werkplekleren\MonsterClicker\obj\Debug\MonsterClicker.exe
+C:\Users\12303390\Documents\Repo\Local\School\Werkplekleren\MonsterClicker\obj\Debug\MonsterClicker.pdb

@@ -1,0 +1,92 @@
+﻿<Window x:Name="Clicker" x:Class="MonsterClicker.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MonsterClicker"
+        mc:Ignorable="d"
+        Title="Monster Clicker" MaxHeight="1080" MaxWidth="1920" Loaded="Window_Loaded" FontFamily="Castellar">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Resources/bg.jpeg" TileMode="Tile">
+                <ImageBrush.RelativeTransform>
+                    <TransformGroup>
+                        <ScaleTransform CenterY="0" CenterX="0" ScaleX="0.15" ScaleY="0.2"/>
+                        <SkewTransform CenterX="0" CenterY="0" AngleX="0"/>
+                        <RotateTransform CenterX="0" CenterY="0"/>
+                        <TranslateTransform X="0"/>
+                    </TransformGroup>
+                </ImageBrush.RelativeTransform>
+            </ImageBrush>
+        </Grid.Background>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="20"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="20"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <WrapPanel Uid="DebugArea" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" Margin="1">
+            <Label x:Name="LblTicks" MinWidth="50" MinHeight="20" Background="White"></Label>
+        </WrapPanel>
+
+        <StackPanel Uid="GameArea" Grid.Row="1" Grid.Column="1" Background="#FF4E4F5F" SnapsToDevicePixels="True" Margin="5">
+            <WrapPanel Background="#FFD4B25D">
+                <Label Content="Gold per Second:" FontWeight="Bold" Margin="0,5,0,5"/>
+                <Label x:Name="LblGoldps" FontWeight="Bold" MinWidth="20" Background="{x:Null}" Margin="5,5,0,3"/>
+            </WrapPanel>
+            <DataGridCell HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="250">
+                <Image x:Name="ImgMonster" Loaded="MonsterImage" MouseDown="ImageSizeClick" MouseUp="ImageSizeClick_released" RenderTransformOrigin="0.5,0.8">
+                    <Image.Effect>
+                        <DropShadowEffect BlurRadius="3" Direction="180" ShadowDepth="6" />
+                    </Image.Effect>
+                </Image>
+            </DataGridCell>
+        </StackPanel>
+
+        <StackPanel Uid="Stats" Grid.Row="1" Grid.Column="2" Margin="5">
+            <Label x:Name="LblGold" Content="{Binding Gold}" MinWidth="50" MinHeight="20" Margin="0,5" Background="White"/>
+
+        </StackPanel>
+
+        <StackPanel Uid="ShopArea" Grid.Row="1" Grid.RowSpan="2" Grid.Column="3" Margin="5">
+            <ListBox x:Name="LstBUpgrades" FontFamily="Castellar" FontWeight="Bold" RenderTransformOrigin="0.5,0.3" VerticalAlignment="Bottom" MinHeight="350" BorderBrush="Black" BorderThickness="2" SelectionChanged="LstBUpgrades_SelectionChanged">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Border BorderBrush="Black" BorderThickness="1.5" MinWidth="80">
+                            <Grid x:Name="ShopItems">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition MinWidth="5"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition MinWidth="5"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition MinHeight="5"></RowDefinition>
+                                    <RowDefinition Height="*"></RowDefinition>
+                                    <RowDefinition MinHeight="5"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <StackPanel Grid.Column="1" Grid.Row="1" Background="White">
+                                    <TextBlock Text="{Binding Item}"></TextBlock>
+                                    <TextBlock Text="{Binding Price}"></TextBlock>
+                                    <TextBlock Text="{Binding Gps}" Visibility="Hidden"></TextBlock>
+                                    <TextBlock Text="{Binding Gpms}" Visibility="Hidden"></TextBlock>
+                                    <TextBlock Text="{Binding Amount}"></TextBlock>
+                                </StackPanel>
+                            </Grid>
+
+                        </Border>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
+        </StackPanel>
+
+    </Grid>
+</Window>
