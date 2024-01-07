@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MonsterClicker"
         mc:Ignorable="d"
-        Title="Monster Clicker" MaxHeight="1080" MaxWidth="1920" Loaded="Window_Loaded" FontFamily="Castellar">
+        Height="450" Width="800"
+        Loaded="Window_Loaded" 
+        FontFamily="Castellar">
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="/Resources/bg.jpeg" TileMode="Tile">
@@ -33,60 +35,118 @@
             <RowDefinition Height="20"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <WrapPanel Uid="DebugArea" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" Margin="1">
-            <Label x:Name="LblTicks" MinWidth="50" MinHeight="20" Background="White"></Label>
-        </WrapPanel>
+        <Viewbox Grid.Row="1" Grid.Column="1">
+            <StackPanel SnapsToDevicePixels="True" Width="400" Height="650">
+                <StackPanel.Background>
+                    <ImageBrush ImageSource="/Resources/Gamebg.png"></ImageBrush>
+                </StackPanel.Background>
+                <WrapPanel Background="SlateGray" HorizontalAlignment="center" Width="200">
+                    <Label Content="Gold per Second:" FontWeight="Bold" HorizontalAlignment="Left"/>
+                    <Label x:Name="LblGoldps" FontWeight="Bold" MinWidth="20" HorizontalAlignment="Right" Background="{x:Null}"/>
+                </WrapPanel>
+                <Grid Width="300" Height="550">
+                    <Canvas x:Name="GameArea"></Canvas>
+                    <Image Name="ImgMonster" Loaded="MonsterImage" MouseDown="ImageSizeClick" MouseUp="ImageSizeClick_released" RenderTransformOrigin="0.5,0.5" Panel.ZIndex="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </Grid>
+            </StackPanel>
 
-        <StackPanel Uid="GameArea" Grid.Row="1" Grid.Column="1" Background="#FF4E4F5F" SnapsToDevicePixels="True" Margin="5">
-            <WrapPanel Background="#FFD4B25D">
-                <Label Content="Gold per Second:" FontWeight="Bold" Margin="0,5,0,5"/>
-                <Label x:Name="LblGoldps" FontWeight="Bold" MinWidth="20" Background="{x:Null}" Margin="5,5,0,3"/>
-            </WrapPanel>
-            <DataGridCell HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="250">
-                <Image x:Name="ImgMonster" Loaded="MonsterImage" MouseDown="ImageSizeClick" MouseUp="ImageSizeClick_released" RenderTransformOrigin="0.5,0.8">
-                    <Image.Effect>
-                        <DropShadowEffect BlurRadius="3" Direction="180" ShadowDepth="6" />
-                    </Image.Effect>
-                </Image>
-            </DataGridCell>
-        </StackPanel>
+        </Viewbox>
 
-        <StackPanel Uid="Stats" Grid.Row="1" Grid.Column="2" Margin="5">
-            <Label x:Name="LblGold" Content="{Binding Gold}" MinWidth="50" MinHeight="20" Margin="0,5" Background="White"/>
-
-        </StackPanel>
-
-        <StackPanel Uid="ShopArea" Grid.Row="1" Grid.RowSpan="2" Grid.Column="3" Margin="5">
-            <ListBox x:Name="LstBUpgrades" FontFamily="Castellar" FontWeight="Bold" RenderTransformOrigin="0.5,0.3" VerticalAlignment="Bottom" MinHeight="350" BorderBrush="Black" BorderThickness="2" SelectionChanged="LstBUpgrades_SelectionChanged">
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <Border BorderBrush="Black" BorderThickness="1.5" MinWidth="80">
-                            <Grid x:Name="ShopItems">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition MinWidth="5"></ColumnDefinition>
-                                    <ColumnDefinition Width="*"></ColumnDefinition>
-                                    <ColumnDefinition MinWidth="5"></ColumnDefinition>
-                                </Grid.ColumnDefinitions>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition MinHeight="5"></RowDefinition>
-                                    <RowDefinition Height="*"></RowDefinition>
-                                    <RowDefinition MinHeight="5"></RowDefinition>
-                                </Grid.RowDefinitions>
-                                <StackPanel Grid.Column="1" Grid.Row="1" Background="White">
-                                    <TextBlock Text="{Binding Item}"></TextBlock>
-                                    <TextBlock Text="{Binding Price}"></TextBlock>
-                                    <TextBlock Text="{Binding Gps}" Visibility="Hidden"></TextBlock>
-                                    <TextBlock Text="{Binding Gpms}" Visibility="Hidden"></TextBlock>
-                                    <TextBlock Text="{Binding Amount}"></TextBlock>
+        <Viewbox Grid.Row="1" Grid.Column="2">
+            <StackPanel Name="Stats" Margin="1" Background="#4E4F5F" Width="400" Height="650">
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top">
+                    <Label Content="Guild:" BorderBrush="Brown" BorderThickness="1.5" Background="BurlyWood" Width="60"></Label>
+                    <TextBox x:Name="TxtGuildName" Width="500" Height="30" TextAlignment="Center" Text="Order of PXL Digital knights" FontSize="18"/>
+                </StackPanel>
+                <StackPanel>
+                    <WrapPanel>
+                        <Label Content="Time played: "></Label>
+                        <Label x:Name="LblTicks"></Label>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <Label Content="Total gold: "></Label>
+                        <Label x:Name="LblTotalGold"></Label>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <Label Content="Total clicks: "></Label>
+                        <Label x:Name="LblTotalClicks"></Label>
+                    </WrapPanel>
+                    <Button x:Name="BtnQuestList" Content="Completed Quests" Click="Click_Quest"></Button>
+                    <Popup x:Name="PopQuests" Placement="Center">
+                        <ListBox x:Name="LstbQuest" Width="200" Height="300" Visibility="Hidden"></ListBox>
+                    </Popup>
+                </StackPanel>
+                <StackPanel>
+                    <ListBox x:Name="LstUpgradeCategories">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Height="50" Width="300">
+                                    <StackPanel.Background>
+                                        <ImageBrush ImageSource="{Binding ImagePath}"></ImageBrush>
+                                    </StackPanel.Background>
+                                    <Label x:Name="LblItemCategory" Content="{Binding Item}"></Label>
+                                    <WrapPanel>
+                                        <Canvas x:Name="CnvsCategory">
+                                            
+                                        </Canvas>
+                                    </WrapPanel>
                                 </StackPanel>
-                            </Grid>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </StackPanel>
 
-                        </Border>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
+            </StackPanel>
 
-        </StackPanel>
+        </Viewbox>
+
+        <Viewbox Grid.Row="1" Grid.Column="3">
+            <StackPanel Name="ShopArea" Margin="1" Width="400" MaxHeight="650">
+                <StackPanel.Background>
+                    <ImageBrush ImageSource="/Resources/Shopbg.png"></ImageBrush>
+                </StackPanel.Background>
+                <WrapPanel Width="350" Height="250" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Image Width="100" HorizontalAlignment="Left" Source="/Resources/Shopkeep.png" Margin="0,70,0,0"></Image>
+                    <Label x:Name="LblShop" Content="Guild Accountant:" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+                    <WrapPanel VerticalAlignment="Top" HorizontalAlignment="Right">
+                        <Image Source="/Resources/Gold.png" MaxWidth="16"></Image>
+                        <Label Content="Current Gold:" Width="Auto"></Label>
+                        <Label x:Name="LblGold" HorizontalContentAlignment="Right" MinWidth="70"/>
+                    </WrapPanel>
+                </WrapPanel>
+                <ListBox x:Name="LstbBonus" Width="380" Height="50">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <WrapPanel>
+                                <Button x:Name="BtnBonus" Click="Buy_Bonus">
+                                    <Label Content="{Binding Item}" ToolTip="{Binding FormattedPrice, StringFormat='Price: {0}' }"></Label>
+                                </Button>
+                            </WrapPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+                <ListBox x:Name="LstbShop" Height="360" MaxWidth="380" SelectionChanged="ItemSelect" SelectedIndex="11" Background="Transparent" ScrollViewer.VerticalScrollBarVisibility="Auto" Visibility="Hidden">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel x:Name="LstbShopItem" ToolTip="{Binding Goldps, StringFormat='Gold per Second: {0}'}">
+                                <StackPanel.Background>
+                                    <ImageBrush ImageSource="/Resources/Itembg.png"></ImageBrush>
+                                </StackPanel.Background>
+                                <WrapPanel Width="320" Height="80">
+                                    <Image Source="{Binding ImagePath}" Width="50"></Image>
+                                    <StackPanel HorizontalAlignment="right">
+                                        <Label Content="{Binding Item}" FontStyle="Oblique"></Label>
+                                        <Label Content="{Binding FormattedPrice}"></Label>
+                                        <Label Content="{Binding Amount}"></Label>
+                                    </StackPanel>
+                                </WrapPanel>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </StackPanel>
+        </Viewbox>
+
 
     </Grid>
 </Window>

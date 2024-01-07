@@ -4,6 +4,7 @@ C:\Users\12303390\Documents\Repo\Local\School\Werkplekleren\MonsterClicker\bin\D
 C:\Users\12303390\Documents\Repo\Local\School\Werkplekleren\MonsterClicker\obj\Debug\MonsterClicker.csproj.AssemblyReference.cache
 C:\Users\12303390\Documents\Repo\Local\School\Werkplekleren\MonsterClicker\obj\Debug\MainWindow.g.cs
 C:\Users\12303390\Documents\Repo\Local\School\Werkplekleren\MonsterClicker\obj\Debug\App.g.cs
+C:\Users\12303390\Documents\Repo\Local\School\Werkplekleren\MonsterClicker\obj\Debug\MonsterClicker_Content.g.cs
 C:\Users\12303390\Documents\Repo\Local\School\Werkplekleren\MonsterClicker\obj\Debug\MonsterClicker_MarkupCompile.cache
 C:\Users\12303390\Documents\Repo\Local\School\Werkplekleren\MonsterClicker\obj\Debug\MonsterClicker_MarkupCompile.lref
 C:\Users\12303390\Documents\Repo\Local\School\Werkplekleren\MonsterClicker\obj\Debug\MainWindow.baml

@@ -94,12 +94,57 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Resources\Gold.png" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\bg.jpeg" />
     <Resource Include="Resources\Slime01.png" />
     <Resource Include="Resources\Undead_01.png" />
     <Resource Include="Resources\Zombie_01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Shopbg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Shopkeep.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\adventurer.png" />
+    <Resource Include="Resources\barracks.png" />
+    <Resource Include="Resources\circle.png" />
+    <Resource Include="Resources\college.png" />
+    <Resource Include="Resources\Sword.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\dragon.png" />
+    <Resource Include="Resources\knight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\wizard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\summoner.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\guild.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Itembg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Select_Itembg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Gamebg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\GoldCoin_01.png" />
+    <Resource Include="Resources\GoldCoin_02.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\Click.wav" />
+    <Content Include="Resources\Gold.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
