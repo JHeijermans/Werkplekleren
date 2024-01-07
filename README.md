@@ -1,2 +1,2 @@
 # Werkplekleren
-Oefening
+Alle opdracht voor OLOD WerkplekLeren
